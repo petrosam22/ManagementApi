@@ -12,7 +12,11 @@ class Feedback extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $fillable = [ 'description','member_id','task_id'];
+    protected $fillable = [
+         'description',
+         'member_id',
+         'task_id'
+        ];
 
 
     public function member(){

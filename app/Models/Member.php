@@ -28,13 +28,19 @@ class Member extends Model
         'email',
         'password',
         'position',
-        'Status',
+        'status',
         'company',
         'phone',
         'contract',
         'role',
         'city',
     ];
+    protected $hidden = [
+        'password',
+
+    ];
+
+
 
     public function workspaces(){
         return $this->belongsToMany(Workspace::class);
@@ -62,7 +68,7 @@ class Member extends Model
         return $this->belongsToMany(Event::class);
     }
     public function posts(){
-        return $this->belongsToMany(Post::class);
+        return $this->hasMany(Post::class);
     }
     public function attend(){
         return $this->morphMany(Attend::class,'attendable');

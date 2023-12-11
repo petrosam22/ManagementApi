@@ -21,7 +21,9 @@ class Admin extends Model
         'role',
         'city',
     ];
-
+    protected $hidden = [
+        'password',
+     ];
 
 
     public function attend(){

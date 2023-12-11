@@ -19,7 +19,7 @@ class CreateCoursesTable extends Migration
             $table->date('started');
             $table->date('ended')->nullable();
             $table->string('duration')->nullable();
-            $table->string('lessons')->default(0);
+            $table->integer('lessons')->default(0);
             $table->string('photo');
             $table->foreignId('status_id')->constrained();
             $table->boolean('remainder')->default(false);

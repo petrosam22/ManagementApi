@@ -15,7 +15,6 @@ class Lesson extends Model
     protected $fillable = [
         'name',
         'date',
-        'status',
         'time',
         'course_id',
         'status_id'

@@ -21,6 +21,7 @@ class Post extends Model
         'project_id',
         'team_id',
         'member_id',
+        'tag_id',
     ];
 
 

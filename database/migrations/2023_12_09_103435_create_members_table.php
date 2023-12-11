@@ -21,7 +21,7 @@ class CreateMembersTable extends Migration
             $table->softDeletes();
             $table->string('password');
             $table->string('position');
-            $table->enum('Status',['active','Inactive']);
+            $table->enum('status',['active','Inactive']);
             $table->string('company');
             $table->string('phone');
             $table->string('contract');

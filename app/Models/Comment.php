@@ -10,7 +10,11 @@ class Comment extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $fillable =[ 'commentable_id','commentable_type','body'];
+    protected $fillable =[
+    'commentable_id',
+    'commentable_type',
+    'body'
+];
 
     public function commantable(){
         return $this->morphTo();

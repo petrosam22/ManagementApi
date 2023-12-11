@@ -25,6 +25,7 @@ protected $fillable = [
     'project_id',
     'team_id',
     'status_id',
+    'tag_id',
     'owner_id',
     'assignTo',
 ];

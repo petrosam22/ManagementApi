@@ -24,6 +24,7 @@ class Project extends Model
         'owner_id',
         'progress',
         'status_id',
+        'tag_id',
         'budget',
         'description',
         'close',
@@ -31,7 +32,7 @@ class Project extends Model
     ];
 
     public function member(){
-        return $this->belongsTo(Member::class);
+        return $this->belongsTo(Member::class,'owner_id');
     }
     public function Workspace(){
         return $this->belongsTo(Workspace::class);
