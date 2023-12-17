@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Member extends Model
 {
     use HasFactory,SoftDeletes,HasApiTokens;
+    protected $guard = "member";
 
     protected $fillable =[
         'name',
@@ -34,6 +35,7 @@ class Member extends Model
         'contract',
         'role',
         'city',
+        'is_verify'
     ];
     protected $hidden = [
         'password',

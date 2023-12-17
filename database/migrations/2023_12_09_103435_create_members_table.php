@@ -19,6 +19,7 @@ class CreateMembersTable extends Migration
             $table->string('photo');
             $table->string('email')->unique();
             $table->softDeletes();
+            $table->boolean('is_verify')->default(false);
             $table->string('password');
             $table->string('position');
             $table->enum('status',['active','Inactive']);

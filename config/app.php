@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use App\Providers\RepositoryServiceProvider;
+use Laravel\Passport\PassportServiceProvider;
 
 return [
 
@@ -168,6 +170,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        RepositoryServiceProvider::class,
+        PassportServiceProvider::class,
+
     ])->toArray(),
 
     /*

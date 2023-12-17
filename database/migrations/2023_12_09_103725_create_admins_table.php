@@ -18,9 +18,9 @@ class CreateAdminsTable extends Migration
             $table->string('name');
             $table->string('photo');
             $table->string('email')->unique();
-
+            $table->boolean('is_verify')->default(false);
             $table->string('password');
-            $table->enum('Status',['active','Inactive']);
+            $table->enum('status',['active','Inactive'])->default('active');
             $table->string('phone');
             $table->string('role')->default('admin');
             $table->string('city');
