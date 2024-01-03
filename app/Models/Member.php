@@ -12,13 +12,16 @@ use App\Models\Course;
 use App\Models\Project;
 use App\Models\Feedback;
 use App\Models\Workspace;
+use App\Models\Scopes\AdminScope;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
-class Member extends Model
+class Member extends Authenticatable
 {
     use HasFactory,SoftDeletes,HasApiTokens;
     protected $guard = "member";
@@ -52,7 +55,7 @@ class Member extends Model
     }
 
     public function tags(){
-        return $this->hasMany(Tag::class);
+        return $this->hasMany(Tag::class,'owner_id');
     }
     public function statuses(){
         return $this->hasMany(Status::class);
@@ -78,4 +81,7 @@ class Member extends Model
     public function courses(){
         return $this->hasMany(Course::class);
     }
+
+
+
 }

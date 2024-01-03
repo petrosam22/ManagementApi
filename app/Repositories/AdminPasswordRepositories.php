@@ -35,12 +35,11 @@ class  AdminPasswordRepositories implements AdminPasswordRepositoryInterface {
         ],200);
 
     }
-    public function resetPassword(Request $request, TokenRepository $tokenRepository){
+    public function resetPassword(Request $request){
 
         $admin = Admin::where('email',$request->email)->first();
         $token = DB::table('oauth_access_tokens')
         ->where('id',$request->token)->get();
-        // ->where('id ',$request->token)->first();
 
         if(!$admin){
             return response()->json([
@@ -59,7 +58,7 @@ class  AdminPasswordRepositories implements AdminPasswordRepositoryInterface {
         $admin->save();
 
 
-        
+
             return response()->json([
                 'message'=> 'Password Changed Successfully'
 

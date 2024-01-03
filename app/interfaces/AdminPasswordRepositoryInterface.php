@@ -10,7 +10,7 @@ use App\Http\Requests\AdminForgetPassword;
 interface AdminPasswordRepositoryInterface {
 
     public function forgotPassword(AdminForgetPassword $request);
-    public function resetPassword(Request $request, TokenRepository $tokenRepository);
+    public function resetPassword(Request $request);
 
 
 }

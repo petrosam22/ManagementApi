@@ -3,17 +3,12 @@
 namespace App\Repositories;
 
 use App\Models\Admin;
-use App\Models\Member;
-use App\Mail\VerifyCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\AdminRequest;
 use App\Traits\ValidatesImageTrait;
-use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateAdminRequest;
 use App\interfaces\AdminRepositoryInterface;
 use NextApps\VerificationCode\VerificationCode;
@@ -65,7 +60,7 @@ use ValidatesImageTrait;
             $verifyCode->delete();
             $admin->is_verify = false;
             $admin->save();
-            VerificationCode::send($admin->email);
+             VerificationCode::send($admin->email);
         }
             VerificationCode::send($admin->email);
 
@@ -142,7 +137,7 @@ use ValidatesImageTrait;
              }
              $admin->update($request->only([
                 'name',
-                'Status',
+                'status',
                 'phone',
                 'city',
             ]));
